@@ -46,6 +46,41 @@ $ cp -ip "サブセット/*.json" data
 $ ./train.py
 ```
 
+## AI について
+
+1 レースは 21 頭の競走馬が競うものとし，その中から 1 着を予測する
+
+### DNN
+
+- 64 nodes の feed-forward 層（ReLU，Dropout 率：0.1）
+- 128 nodes の feed-forward 層（ReLU，Dropout 率：0.4）
+- 256 nodes の feed-forward 層（ReLU，Dropout 率：0.4）
+- 21 nodes の feed-forward 層（softmax）
+
+### 特徴量
+
+特徴量は，レース特徴と競走馬特徴を用いる
+
+下記の 3 項目をレース特徴とする
+
+- 馬場状態：芝 or ダート
+- 距離：[m]
+- 天気：晴 or 曇 or 雨
+
+21 頭の競走馬それぞれが下記の 7 次元ベクトルの特徴をもつ
+
+- 枠
+- 性別：牡 or 牝 or セ
+- 年齢
+- 単勝オッズ
+- 体重
+- 体重増減
+- 斤量
+
+上記のレース特徴（3 次元）と，競走馬特徴（7 次元\*21 頭）を合わせた 150 次元のベクトルを特徴量とし，DNN へ入力する
+
+この入力ベクトルから，1 着競走馬のクラスタリング問題として予測を行う
+
 ## 作成者
 
 - [Averak](https://github.com/averak)
