@@ -23,7 +23,6 @@ nnet.fit(
     validation_split=0.1
 )
 
-
 pred = nnet.predict(x)
 n_right = 0
 for i in range(len(x)):
@@ -31,4 +30,4 @@ for i in range(len(x)):
         n_right += 1
 
 print('')
-print('正解率：%4.3f%% [%d件]' % (n_right/len(x), len(x)))
+print('正解率：%5.3f%% [全%d件]' % (100 * n_right/len(x), len(x)))
