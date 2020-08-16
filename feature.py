@@ -37,9 +37,7 @@ def preprocessing(data):
         # 競走馬特徴
         race['競走馬'] = sorted(race['競走馬'], key=sort_horse)
         for i in range(21):
-            if i >= len(race['競走馬']):
-                race_proc.extend([0, 0, 0, 0, 0, 0, 0])
-            else:
+            if i < len(race['競走馬']):
                 horse = race['競走馬'][i]
                 horse_proc = []
                 horse_proc.append(horse['枠'])
@@ -53,6 +51,8 @@ def preprocessing(data):
 
                 if horse['順位'] == 1:
                     y.append(i)
+            else:
+                race_proc.extend(np.zeros(len(horse_proc)))
 
         x.append(race_proc)
 

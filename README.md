@@ -28,7 +28,7 @@ RCC 2020 年度競馬 AI 班
 
 ```sh
 $ pip install -U pip
-$ pip install -r requerements.txt
+$ pip install -r requirements.txt
 ```
 
 ### 競馬データのセットアップ

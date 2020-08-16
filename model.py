@@ -2,7 +2,7 @@ import tensorflow.keras.layers as layers
 from tensorflow.keras import Model
 
 
-def nnet(input_shape=(150), n_class=21):
+def nnet(input_shape, n_class=21):
     # 入力層
     input_layer = layers.Input(shape=input_shape)
 
